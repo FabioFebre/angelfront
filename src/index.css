@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #f8fafc; /* gris claro */
+  /* ✅ Aquí se elimina font-body porque no es una clase aplicable */
+  color: #1f2937; /* text-gray-800 */
+  font-family: 'Inter', sans-serif; /* Aplica directamente la fuente */
+}
+
+h1, h2, h3 {
+  @apply font-semibold text-gray-800;
+}
+
+/* Botón CRUD reutilizable */
+.btn-crud {
+  @apply flex items-center justify-center gap-2 px-4 py-2 rounded-md text-sm font-medium shadow transition-all;
+}
