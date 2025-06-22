@@ -1,32 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Home from './pages/Home';
+import Admin from './pages/Admin';
 
-import AutorList from './components/AutorList';
-import AutorForm from './components/AutorForm';
-import LibroList from './components/LibroList';
-import LibroForm from './components/LibroForm';
-
-export default function App() {
+function App() {
   return (
     <Router>
-      <div className="max-w-6xl mx-auto p-4">
-        <nav className="flex gap-6 mb-6 border-b pb-3 text-lg">
-          <Link to="/" className="text-blue-600 hover:underline font-semibold">Autores</Link>
-          <Link to="/libros" className="text-blue-600 hover:underline font-semibold">Libros</Link>
-        </nav>
+      <div className="bg-gray-100 min-h-screen p-6">
+        <header className="text-center mb-4">
+          <h1 className="text-4xl font-extrabold text-gray-800 mb-2">Tienda de electrodomésticos</h1>
+          <nav className="flex justify-center gap-4 text-blue-700 underline">
+            <Link to="/"> Inicio</Link>
+            <Link to="/admin">Administrar</Link>
+          </nav>
+        </header>
 
         <Routes>
-          {/* AUTOR CRUD */}
-          <Route path="/" element={<AutorList />} />
-          <Route path="/autores/nuevo" element={<AutorForm />} />
-          <Route path="/autores/:id" element={<AutorForm />} />
-
-          {/* LIBRO CRUD */}
-          <Route path="/libros" element={<LibroList />} />
-          <Route path="/libros/crear" element={<LibroForm />} />
-          <Route path="/libros/editar/:id" element={<LibroForm />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </div>
     </Router>
   );
 }
+
+export default App;
